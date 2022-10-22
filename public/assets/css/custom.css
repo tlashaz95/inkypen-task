@@ -190,7 +190,7 @@ flex-wrap: nowrap;
 .slider_right {
     flex-grow: 3;
     margin-top: 5vh;
-    box-shadow:5px 10px 80px #e0197e;
+    box-shadow:5px 5px 70px #e0197e;
     border-radius: 20px;
     width: 100%;
     margin-left: 10vw;
