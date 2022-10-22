@@ -48,7 +48,7 @@
                         <input type="file" id="input-file" class="form-control" name="images[]" multiple />
                     </div>
 
-                    <button type="submit" class="submitBtn">Submit</button>
+                    <button type="submit" class="submit_btn">Submit</button>
                 </form>
             </div>
         </div>
