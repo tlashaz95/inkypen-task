@@ -52,9 +52,7 @@ class GalleryController extends Controller
         // Saving Display Image
         if($request->hasFile("display_image"))
         {
-            $request->validate([
-                'display_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
-            ]);
+            GalleryController::validateImages($request, 'display_image');
             
             $file = $request->file("display_image");
             $imageName = time().'_'.$file->getClientOriginalName();
@@ -72,13 +70,10 @@ class GalleryController extends Controller
         // Saving all other images
         if($request->hasFile("images"))
         {
-            $request->validate([
-            'display_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
-            ]);
-
             $files = $request->file("images");
             foreach($files as $file)
             {
+                GalleryController::validateImages($file, 'images');
                 $imageName = time().'_'.$file->getClientOriginalName();
                 $request['gallery_id'] = $gallery->id;
                 $request['image'] = $imageName;
@@ -133,9 +128,7 @@ class GalleryController extends Controller
 
         if($request->hasFile("display_image"))
         {
-            $request->validate([
-            'display_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
-            ]);
+            GalleryController::validateImages($request, 'display_image');
 
             if(File::exists("display_images/".$gallery->display_image))
             {
@@ -155,14 +148,11 @@ class GalleryController extends Controller
         ]);
 
         if($request->hasFile("images"))
-        {
-            $request->validate([
-            'display_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
-            ]);
-            
+        {   
             $files = $request->file("images");
             foreach($files as $file)
             {
+                GalleryController::validateImages($file, 'images');
                 $imageName = time()."_".$file->getClientOriginalName();
                 $request["gallery_id"] = $id;
                 $request["image"] = $imageName;
@@ -201,5 +191,12 @@ class GalleryController extends Controller
         }
         $gallery->delete();
         return back();
+    }
+
+    public function validateImages($request, $img)
+    {
+        $request->validate([
+        $img => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
+    ]);
     }
 }
