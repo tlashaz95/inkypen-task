@@ -53,7 +53,7 @@ class GalleryController extends Controller
         if($request->hasFile("display_image"))
         {
             $request->validate([
-                'display_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg'
+                'display_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
             ]);
             
             $file = $request->file("display_image");
