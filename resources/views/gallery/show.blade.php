@@ -17,7 +17,7 @@
                     @if (count($gallery->images) > 0)
                         @foreach ($gallery->images as $img)
                             <div class="sliderImgs fade">
-                                <img src="/images/{{ $img->image }}" class="slider_img" alt="Other image" />
+                                <img src="/images/{{ $img->image }}" class="slider_img" alt="Other images" />
                             </div>
                         @endforeach
                     @endif

@@ -26,7 +26,7 @@
                         <th scope="row">{{ $gallery->id }}</th>
                         <td>{{ $gallery->title }}</td>
                         <td>{{ $gallery->description }}</td>
-                        <td><img src="display_images/{{ $gallery->display_image }}" class="img-responsive display_image" /></td>
+                        <td><img src="display_images/{{ $gallery->display_image }}" class="img-responsive display_image" alt="Display Image"/></td>
                         <td><a href="/edit/{{ $gallery->id }}" class="btn btn-outline-primary">Update</a></td>
                         <td>
                             <form action="/delete/{{ $gallery->id }}" method="POST">

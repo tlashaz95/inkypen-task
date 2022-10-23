@@ -72,6 +72,10 @@ class GalleryController extends Controller
         // Saving all other images
         if($request->hasFile("images"))
         {
+            $request->validate([
+            'display_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
+            ]);
+
             $files = $request->file("images");
             foreach($files as $file)
             {
@@ -129,6 +133,10 @@ class GalleryController extends Controller
 
         if($request->hasFile("display_image"))
         {
+            $request->validate([
+            'display_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
+            ]);
+
             if(File::exists("display_images/".$gallery->display_image))
             {
                 File::delete("display_images/".$gallery->display_image);
@@ -148,6 +156,10 @@ class GalleryController extends Controller
 
         if($request->hasFile("images"))
         {
+            $request->validate([
+            'display_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
+            ]);
+            
             $files = $request->file("images");
             foreach($files as $file)
             {

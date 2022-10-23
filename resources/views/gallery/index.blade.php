@@ -14,7 +14,7 @@
                     <a href="/show/{{ $gallery->id }}">
                         <div class="card">
                             <div class="imgBx">
-                                <img src="display_images/{{ $gallery->display_image }}" />
+                                <img src="display_images/{{ $gallery->display_image }}" alt="Display Image"/>
                             </div>
                             <div class="contentBx">
                                 <h2>{{ $gallery->title }}</h2>
