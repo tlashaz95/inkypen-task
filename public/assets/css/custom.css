@@ -204,6 +204,7 @@ flex-wrap: nowrap;
 
 .slider_img{
     object-fit: fill;
+    min-height: 250px;
     max-height: 450px;
     border-radius: 20px;
     width: 100%;
