@@ -197,7 +197,7 @@ flex-wrap: nowrap;
 }
 
 .display_image_slider{
-    object-fit: fill;
+    object-fit: cover;
     max-height: 500px;
     border-radius: 20px;
 }

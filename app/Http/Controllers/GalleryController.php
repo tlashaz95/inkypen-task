@@ -19,7 +19,7 @@ class GalleryController extends Controller
      // Home Gallery
     public function index()
     {
-        $galleries = Gallery::all();
+        $galleries = Gallery::latest()->paginate(8);
         return view('gallery.index')->with('galleries', $galleries);
     }
 
