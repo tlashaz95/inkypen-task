@@ -6,6 +6,7 @@ use App\Models\Image;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 
 class GalleryController extends Controller
 {
@@ -70,10 +71,10 @@ class GalleryController extends Controller
         // Saving all other images
         if($request->hasFile("images"))
         {
+            
             $files = $request->file("images");
             foreach($files as $file)
             {
-                GalleryController::validateImages($file, 'images');
                 $imageName = time().'_'.$file->getClientOriginalName();
                 $request['gallery_id'] = $gallery->id;
                 $request['image'] = $imageName;
@@ -152,7 +153,6 @@ class GalleryController extends Controller
             $files = $request->file("images");
             foreach($files as $file)
             {
-                GalleryController::validateImages($file, 'images');
                 $imageName = time()."_".$file->getClientOriginalName();
                 $request["gallery_id"] = $id;
                 $request["image"] = $imageName;
